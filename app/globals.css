@@ -1,26 +1,142 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #f8fafc;
+  --foreground: #0f172a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Theme colors - Light Mode (Bright Blue Nuance) */
+  --primary: #0066ff;
+  --on-primary: #ffffff;
+  --primary-container: #e6f0ff;
+  --on-primary-container: #0044cc;
+  --primary-fixed: #0066ff;
+  --secondary: #475569;
+  --secondary-fixed: #64748b;
+  --surface: #ffffff;
+  --on-surface: #0f172a;
+  --on-surface-variant: #475569;
+  --surface-container-lowest: #ffffff;
+  --surface-dim: #f1f5f9;
+  --outline: #cbd5e1;
+  --outline-variant: #e2e8f0;
+
+  /* Custom Spacing & Layout */
+  --margin-mobile: 1rem;
+  --gutter: 1.5rem;
+  --stack-sm: 0.5rem;
+  --stack-md: 1rem;
+  --stack-lg: 1.5rem;
+  --container-max: 1200px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #070a13;
+    --foreground: #f8fafc;
+
+    /* Theme colors - Dark Mode (Bright Blue Nuance) */
+    --primary: #3b82f6;
+    --on-primary: #ffffff;
+    --primary-container: #1e3a8a;
+    --on-primary-container: #bfdbfe;
+    --primary-fixed: #60a5fa;
+    --secondary: #94a3b8;
+    --secondary-fixed: #cbd5e1;
+    --surface: #0f172a;
+    --on-surface: #f8fafc;
+    --on-surface-variant: #94a3b8;
+    --surface-container-lowest: #0b0f19;
+    --surface-dim: #070a13;
+    --outline: #334155;
+    --outline-variant: #1e293b;
   }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Mapping colors */
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-secondary: var(--secondary);
+  --color-secondary-fixed: var(--secondary-fixed);
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-dim: var(--surface-dim);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* Spacing */
+  --spacing-margin-mobile: var(--margin-mobile);
+  --spacing-gutter: var(--gutter);
+  --spacing-stack-sm: var(--stack-sm);
+  --spacing-stack-md: var(--stack-md);
+  --spacing-stack-lg: var(--stack-lg);
+
+  /* Sizing */
+  --width-container-max: var(--container-max);
+  --max-width-container-max: var(--container-max);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-work-sans), var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Custom Font utilities matching code classes */
+@utility font-body-md {
+  font-family: var(--font-work-sans), var(--font-geist-sans), sans-serif;
+  font-weight: 400;
+}
+@utility font-headline-lg {
+  font-family: var(--font-manrope), var(--font-geist-sans), sans-serif;
+  font-weight: 700;
+}
+@utility font-label-md {
+  font-family: var(--font-work-sans), var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+}
+@utility font-label-sm {
+  font-family: var(--font-work-sans), var(--font-geist-sans), sans-serif;
+  font-weight: 500;
+}
+
+/* Typography styles utility */
+@utility text-headline-lg {
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+@utility text-headline-md {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+@utility text-label-md {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+@utility text-label-sm {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+@utility text-body-md {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
